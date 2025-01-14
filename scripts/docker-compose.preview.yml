@@ -1,0 +1,34 @@
+services:
+  intual-frontend:
+    build:
+      context: ..
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DOPPLER_TOKEN=${FRONTEND_DOPPLER_TOKEN}
+
+  intual-api:
+    build:
+      context: ..
+      dockerfile: api/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DOPPLER_TOKEN=${API_DOPPLER_TOKEN}
+    
+
+  intual-processing:
+    build:
+      context: ..
+      dockerfile: processing/Dockerfile
+    environment:
+      - DOPPLER_TOKEN=${PROCESSING_DOPPLER_TOKEN}
+
+  intual-postgres:
+    extends:
+      file: ../docker-compose.mock.yml
+      service: intual-postgres
+
+volumes:
+  intual-postgres-vol:
