@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+
+DROP EXTENSION IF EXISTS "uuid-ossp";
