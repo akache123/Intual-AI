@@ -1,0 +1,17 @@
+services:
+  intual-postgres:
+    container_name: intual-postgres
+    build:
+      context: scripts
+      dockerfile: postgres.Dockerfile
+    environment:
+      POSTGRES_USER: intual
+      POSTGRES_PASSWORD: intual
+      POSTGRES_DB: intual
+    volumes:
+      - intual-postgres-vol:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+volumes:
+  intual-postgres-vol:

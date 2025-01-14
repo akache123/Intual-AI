@@ -1,0 +1,10 @@
+setup:
+  - project: intual-frontend
+    config: dev_personal
+    path: frontend/
+  - project: intual-api
+    config: dev_personal
+    path: api/
+  - project: intual-processing
+    config: dev_personal
+    path: processing/
